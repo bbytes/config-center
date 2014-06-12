@@ -90,6 +90,7 @@ public class MongoConfigReaderWriter implements IConfigReaderWriter {
 			Environment environment) throws CloudConfigException {
 		CCProperty ccProperty = ccPropertyRepository.findOne(property.getId());
 		if (ccProperty != null) {
+			ccProperty.setPropertyName(property.getPropertyName());
 			ccProperty.setPropertyValue(property.getPropertyValue());
 			ccProperty.setDataType(property.getDataType());
 			ccPropertyRepository.save(ccProperty);
