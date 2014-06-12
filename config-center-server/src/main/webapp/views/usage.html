@@ -1,0 +1,64 @@
+<div>
+	<div class="table-responsive usage-div">
+	
+		<h3>Usage of Cloud-config in {{ccproject.projectName}} </h3>
+	
+		<p>Build the project and add maven artifact to local repo as the lib
+			is not published to public repo yet . Once the maven artifcat is
+			there in the local repo add the lib to your pom file. 1.0.0 
+			is the current stable version of config center client.
+			JDK or JRE 1.7 is required for config center client.
+		</p>   
+		
+		<!-- <button type="button" clip-copy="getTextToCopy()" clip-click="copyMaven()">Copy to clipboard</button> -->
+		<a href="" clip-copy="getMvnToCopy()" clip-click="doSomething()" class="btn btn-primary btn-sm">Copy</a>
+		<textarea class="clip" rows="5" ng-model="usage.mavenDep" readonly="readonly"></textarea>
+		
+		<p>
+			<h4>Using cloud config manager in java spring project</h4>
+		</p>
+		<p>
+			Use this bean declaration if property file is loaded using <code>org.springframework.beans.factory.config.PropertyPlaceholderConfigurer</code> :
+		</p>
+		
+		<a href="" clip-copy="getSpringCfg1ToCopy()" clip-click="doSomething()" class="btn btn-primary btn-sm">Copy</a>
+		<textarea class="clip" rows="20" ng-model="usage.springCfg1" readonly="readonly"></textarea>
+		
+		<p>
+			Use this bean declaration if property file is loaded using <code>util:properties</code> namespace :
+		</p>
+		
+		<a href="" clip-copy="getSpringCfg2ToCopy()" clip-click="doSomething()" class="btn btn-primary btn-sm">Copy</a>
+		<textarea class="clip" rows="14" ng-model="usage.springCfg2" readonly="readonly"></textarea>
+		
+		
+		<p>
+			<h4>Usage for standalone java project  : </h4>
+		</p>
+		<p>
+			Download the zip file containing all the .jar 
+			files required for config-center as dependency  
+			<a href="/app/ccprojects/jarDownload"> here.</a>
+		 </p>
+		<p>
+			Add cloud config lib to classpath 
+		</p>
+		<p>
+			Init ConfigCenterPropertyManager
+		</p>
+		<a href="" clip-copy="getInitToCopy()" clip-click="doSomething()" class="btn btn-primary btn-sm">Copy</a>
+		<textarea class="clip" rows="2" ng-model="usage.init" readonly="readonly"></textarea>
+		<p>
+			Using config center to get some configured property
+		</p>
+		<a href="" clip-copy="getPropToCopy()" clip-click="doSomething()" class="btn btn-primary btn-sm">Copy</a>
+		<textarea class="clip" rows="1" ng-model="usage.getProp" readonly="readonly"></textarea>
+		
+		<!-- <p>
+			Using config center to set property
+		</p>
+		<a href="" clip-copy="getJavaToCopy()" clip-click="doSomething()" class="btn btn-primary btn-sm">Copy</a>
+		<textarea class="clip" rows="2" ng-model="usage.java" readonly="readonly"></textarea> -->
+	    
+	</div>
+</div>

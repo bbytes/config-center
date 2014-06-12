@@ -1,0 +1,39 @@
+server:
+    port: 9090
+    sessionTimeout: 1000
+
+spring:
+    profiles: dev
+    data:
+        mongodb:
+            host: localhost
+            port: 27017
+            databaseName: ccenter
+    
+
+    thymeleaf:
+        mode: XHTML
+        cache: false
+
+metrics:
+    jmx.enabled: true
+    graphite:
+        enabled: false
+        host: localhost
+        port: 2003
+
+
+
+# You can add as many as folders to watch
+# You just need to add a dash + the directory to watch
+hotReload:
+    enabled: true
+    package:
+      project: com.bbytes.ccenter
+      domain: com.bbytes.ccenter.domain
+      restdto: com.bbytes.ccenter.web.rest.dto
+    liquibase:
+      defaultCatalogName: 
+      defaultSchema: 
+    watchdir:
+      - target/classes

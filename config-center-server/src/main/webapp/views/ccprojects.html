@@ -1,0 +1,133 @@
+<div>
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveCCProjectModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> Create Project
+    </button>
+    <div class="modal fade" id="saveCCProjectModal" tabindex="-1" role="dialog" aria-labelledby="myCCProjectLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myCCProjectLabel">Create Project</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="ccproject.id" readonly>
+                        </div> -->
+
+                        <div class="form-group">
+                            <label>Project Name</label>
+                            <input type="text" class="form-control" name="test"
+                                   ng-model="ccproject.projectName" ng-minlength=1 ng-maxlength=50 required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Environment</label>
+                            <!-- <input type="date" class="form-control" name="test"
+                                   ng-model="ccproject.environment" required> -->
+                            <select ng-options="env.label for env in environments" ng-model="ccproject.environment"
+                            	class="form-control">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                        </button>
+                        <button type="button" ng-disabled="form.$invalid" class="btn btn-primary" 
+                        	ng-click="create()">
+                            <span class="glyphicon glyphicon-save"></span> Save
+                        </button>
+                        <!-- <button ng-show="ccproject.id != null" type="button" ng-disabled="form.$invalid" class="btn btn-primary" 
+                        	ng-click="update()">
+                            <span class="glyphicon glyphicon-save"></span> Update
+                        </button> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Environment</th>
+                    <th>Action</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ccproject in ccprojects">                    
+                    <td>{{ccproject.projectName}}</td>
+                    <td>{{ccproject.environment.name}}</td>
+                    <td>
+                    	<button type="submit" ng-click="configure(ccproject.id)" class="btn btn-primary btn-sm">
+                    		<span ></span> Add Property</button> 
+                    	<a type="submit" ng-click="usage(ccproject.id)" class="ccbtn actions usage-icon"
+                    		title="usage info">
+                    		<span></span> </a>
+                    	<!-- <button type="submit" ng-click="load(ccproject.id)" class="btn">
+                    		<span class="glyphicon glyphicon-pencil"></span>Edit</button>  -->
+                    	                                        	                    	
+                    	<form name="form" role="form" novalidate
+							class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength" ng-show="false">
+	                    	<div class="form-group">
+	                    		<input type="text" name="projId" ng-model="ccproject.id" ng-hide="true">
+								<input id="fileUpload" name="uploadFile" type="file"
+									onchange="angular.element(this).scope().fileChange(this.files)" required="required" />
+							</div>
+						</form>
+                    	<a href=""  ng-click="import(ccproject.id)" class="ccbtn actions import-icon" title="Import properties file">
+                    		<!-- <span class=""></span>  --></a>
+                    		
+                    	<a tabindex="-1" href="javascript:;" ng-click="download(ccproject.id, ccproject.properties)" 
+                    		class="ccbtn actions export-icon"	title="Export properties file" rel="downloadr" ></a>
+
+							
+						<a ng-click="confirmDelete(ccproject.projectName, ccproject.id)" class="ccbtn actions delete-icon"
+							title="Delete project">
+                    		<!-- <span class="glyphicon glyphicon-remove-circle"></span> Delete --></a>	
+                    	
+                    	<progressbar class="progress-striped active" ng-class="{'progress-show' : ccprojid == ccproject.id}" ng-value="dynamic" type="success"> 
+                    		<i ng-show="true">Adding properties</i></progressbar>
+                    	<!-- <div class='progressBar' style="display: none">
+                    		<div></div>
+						</div> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="modal fade" id="deleteCCProjectModal" tabindex="-1" role="dialog" aria-labelledby="myCCProjectLabel"
+         	aria-hidden="true">
+        	<div class="modal-dialog">
+            	<div class="modal-content">
+                
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <h4>Do you want to delete project: <label>{{delProj.delProjName}} ?</label></h4>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="close()">
+                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                        </button>
+                        <button type="button" class="btn btn-danger" ng-click="delete(delProj.delProjId)">
+                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                        </button>
+                    </div>
+            	</div>
+        	</div>
+    	</div>
+        
+    </div>
+</div>

@@ -1,0 +1,139 @@
+<div>
+
+    <h3 align="center">Properties for {{ccproject.projectName}}</h3>
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveCCPropertyModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> Add Property
+    </button>
+    <div class="modal fade" id="saveCCPropertyModal" tabindex="-1" role="dialog" aria-labelledby="myCCPropertyLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myCCPropertyLabel">
+                        	{{ccproperty.id == null ? 'Create' : 'Edit'}} Property for {{ccproject.projectName}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="ccproperty.id" readonly>
+                        </div> -->
+                         <div class="form-group">
+                            <label>Data Type</label>
+                            <select ng-options="type.displayName for type in dataTypes" ng-model="ccproperty.dataType"
+                            	ng-change="onDataTypeChange(ccproperty.dataType)" class="form-control" 
+                            	 ccdata-type="dataTypeVal">
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Property Name</label>
+                            <input type="text" class="form-control" name="propertyName"
+                                   ng-model="ccproperty.propertyName" ng-minlength=1 ng-maxlength=50 required>
+                        </div>
+						
+						<div class="form-group">
+                            <label>Value</label>
+							<input ng-hide="ccproperty.dataType.name == 'BOOLEAN' || ccproperty.dataType.name == 'DATE' || ccproperty.dataType.name == 'DATETIME'" 
+							id="dataTypeVal" type="text" class="form-control" name="propertyValue"
+                            	ng-model="ccproperty.propertyValue">
+                            
+                            <select ng-show="ccproperty.dataType.name == 'BOOLEAN'" ng-options="op for op in options" ng-model="ccproperty.propertyValue"
+                            	class="form-control" ></select>
+                                                   	
+                            <datetimepicker id="dt" ng-show="ccproperty.dataType.name == 'DATE' || ccproperty.dataType.name == 'DATETIME'" min-date="minDate" 
+                            	show-weeks="showWeeks" hour-step="hourStep" minute-step="minuteStep" ng-model="date" 
+					            show-meridian="showMeridian" date-format="yyyy-MM-dd" date-options="dateOptions" 
+					            date-disabled="disabled(date, mode)" showMinutes="true"></datetimepicker>
+                            
+                            <!-- <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre>
+                            <input type="text" ng-value="date | date:'MM-dd-yyyy'">
+                            <input type="text" ng-value="date | date:'shortTime'" > -->
+                        </div>
+                                   
+                        <!-- <div class="form-group">
+                            <label>Value</label>
+                            <input type="date" class="form-control" name="test"
+                                   ng-model="ccproperty.sampleDateAttribute" required>
+                        </div> -->
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                        </button>
+                        <button ng-show="ccproperty.id == null" type="button" ng-disabled="form.$invalid" class="btn btn-primary" ng-click="create()">
+                            <span class="glyphicon glyphicon-save"></span> Save
+                        </button>
+                        <button ng-show="ccproperty.id != null" type="button" ng-disabled="form.$invalid" class="btn btn-primary" ng-click="update()">
+                            <span class="glyphicon glyphicon-save"></span> Update
+                        </button> 
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped fixed_headers">
+            <thead>
+                <tr>
+                    <!-- <th>ID</th> -->
+                    <th>Property Name</th>
+                    <th>Value</th>
+                    <th>Data Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ccproperty in ccpropertys">
+                    <!-- <td>{{ccproperty.id}}</td> -->
+                    <td>{{ccproperty.propertyName}}</td>
+                    <td>{{ccproperty.propertyValue}}</td>
+                    <td>{{ccproperty.dataType.name}}</td>
+                    
+                    <td>
+                        <a href="" ng-click="load(ccproperty.id)" class="ccbtn actions edit-icon"
+                        title="Edit property">
+                            <!-- <span class="glyphicon edit-icon"></span>  -->
+                        </a>
+                        <a href="" ng-click="confirmDelete(ccproperty.propertyName,ccproperty.id)" 
+                        	title="Delete property" class="ccbtn actions delete-icon">
+                            <!-- <span class="glyphicon glyphicon-remove-circle"></span> Delete -->
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="modal fade" id="deleteCCPropertyModal" tabindex="-1" role="dialog" aria-labelledby="myCCPropertyLabel"
+         	aria-hidden="true">
+        	<div class="modal-dialog">
+            	<div class="modal-content">
+                
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <h4>Do you want to delete property: <label>{{delProp.delPropName}} ?</label></h4>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="close()">
+                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                        </button>
+                        <button type="button" class="btn btn-danger" ng-click="delete(delProp.delPropId)">
+                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                        </button>
+                    </div>
+            	</div>
+        	</div>
+    	</div>
+        
+    </div>
+</div>

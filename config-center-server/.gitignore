@@ -1,0 +1,8 @@
+/.settings/
+/.tmp/
+/target/
+/node_modules/
+/spring_loaded/
+/.classpath
+/.project
+/bower_components/

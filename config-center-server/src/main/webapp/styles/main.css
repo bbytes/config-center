@@ -1,0 +1,249 @@
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+.modal-dialog {
+	width: 500px;
+}
+
+.development {
+    position: absolute;
+    width: 149px;
+    height: 149px;
+    top: 0;
+    left: 0;
+    border: 0;
+    z-index: 1000;
+    background-image: url("../images/development_ribbon.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.hero-unit {
+    margin: 50px auto 0 auto;
+    width: 300px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 60px;
+}
+
+.hero-unit h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.error {
+    color: white;
+    background-color: red;
+}
+
+.row {
+	padding: 40px 0;
+}
+
+.form {
+	margin-top : 80px;
+	margin-right: 40px;
+}
+
+.hipster {
+  display: inline-block;
+  width: 463px;
+  height: 400px;
+  /* background-image: url("../images/hipster.jpg"); */
+  background-image: url("../images/data-cfg.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hand {
+    cursor: pointer;
+}
+
+#threadDump .popover, #healthCheck .popover {
+    top: inherit;
+    display: block;
+    font-size: 10px;
+    max-width: 1024px;
+}
+
+#healthCheck .popover {
+    margin-left: -50px;
+}
+
+.alert .popover pre {
+    font-size: 10px;
+}
+
+.voffset  { margin-top: 2px; }
+.voffset1 { margin-top: 5px; }
+.voffset2 { margin-top: 10px; }
+.voffset3 { margin-top: 15px; }
+.voffset4 { margin-top: 30px; }
+.voffset5 { margin-top: 40px; }
+.voffset6 { margin-top: 60px; }
+.voffset7 { margin-top: 80px; }
+.voffset8 { margin-top: 100px; }
+.voffset9 { margin-top: 150px; }
+
+/* start Password strength bar style */
+ul#strength {
+    display:inline;
+    list-style:none;
+    margin:0;
+    margin-left:15px;
+    padding:0;
+    vertical-align:2px;
+}
+
+.point:last {
+    margin:0 !important;
+}
+.point {
+    background:#DDD;
+    border-radius:2px;
+    display:inline-block;
+    height:5px;
+    margin-right:1px;
+    width:20px;
+}
+/* end Password strength bar style */
+
+
+.well {
+	min-height: 500px;
+}
+
+.table-responsive {
+	margin-top: 20px;
+}
+
+.table-responsive table thead th {
+background-color: #DCDCDC;
+}
+
+.fixed_headers {
+  width: 1100px;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+  .fixed_headers th, .fixed_headers td {
+    padding: 5px;
+    text-align: left;
+  }  
+ .fixed_headers td:nth-child(1), .fixed_headers th:nth-child(1) { min-width: 340px; }
+ .fixed_headers td:nth-child(2), .fixed_headers th:nth-child(2) { min-width: 380px; }
+ .fixed_headers td:nth-child(3), .fixed_headers th:nth-child(3) { width: 150px; }
+  .fixed_headers td:nth-child(4), .fixed_headers th:nth-child(4) { width: 230px; }
+ .fixed_headers tr {
+     display: block;
+     position: relative;
+  }
+ .fixed_headers tbody {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    height: 400px;
+ }
+ 
+textarea.clip, div.clip {
+  width: 100%;	
+  max-width: 100%;
+  max-height: 580px;
+}
+
+.usage-div {
+	padding: 0 80px 20px 80px;
+}
+
+
+.usage-div a.btn {
+	float: right;
+}
+
+.progress-show {
+	display: -webkit-box !important;
+}
+
+.progress-striped {
+	display: none;
+	float: right;
+}
+
+a.navbar-brand span {
+	font-family: 'MyWebFont';
+	src: url('School Book New.ttf') format('truetype');
+	font-size : 20px;
+       
+}
+
+a.actions {
+	width: 30px;
+	height: 30px;
+	margin: 0 2px;
+	background-repeat: no-repeat;
+}
+
+a.edit-icon {
+	background-image: url("../images/1402079731_application_edit.png");
+}
+
+a.delete-icon {
+	background-image: url("../images/1402079367_Erase.png");
+}
+
+a.import-icon{
+	background-image: url("../images/1402073836_import1.png");
+}
+
+a.export-icon {
+	background-image: url("../images/1402075721_export1.png");
+}
+
+a.usage-icon {
+	background-image: url("../images/1402319155_application-code.png");
+}
+
+.showcalendar, .dttime.show {
+	display: inline-block !important;
+}
+
+.hidecalendar, .dttime.hide {
+	display: none !important;
+}
+
+datetimepicker {
+	display: inline-block;
+	width: 100%;
+}
+
+.ccbtn {
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: 400;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	border-radius: 4px;
+	-webkit-user-select: none;
+}
+
+.ccbtn:focus,.ccbtn:active:focus,.ccbtn.active:focus {
+	opacity : .7;
+}
+.ccbtn:hover, .ccbtn:focus { 
+	color: inherit !important;
+	text-decoration:none
+}

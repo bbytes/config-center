@@ -1,0 +1,17 @@
+{
+  "generator-jhipster": {
+    "baseName": "ccenter",
+    "packageName": "com.bbytes.ccenter",
+    "packageFolder": "com/bbytes/ccenter",
+    "authenticationType": "cookie",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "nosql",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "useCompass": false,
+    "frontendBuilder": "grunt",
+    "javaVersion": "7"
+  }
+}

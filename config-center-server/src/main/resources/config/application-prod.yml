@@ -1,0 +1,25 @@
+server:
+    port: 8080
+
+spring:
+    profiles: prod
+    data:
+        mongodb:
+            host: localhost
+            port: 27017
+            databaseName: ccenter
+    
+
+    thymeleaf:
+        mode: XHTML
+        cache: true
+
+
+metrics:
+    jmx.enabled: true
+    graphite:
+        enabled: false
+        host: localhost
+        port: 2003
+
+
