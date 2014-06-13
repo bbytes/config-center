@@ -78,7 +78,7 @@ public class ResourceUtils {
 		TreeMap<String, String> map = getPropertiesAsMap(properties);
 		final String seperator = "=";
 		String charset = "UTF-8";
-		String newLine = "\n";
+		String newLine = System.lineSeparator();
 
 		for (Map.Entry<String, String> entry : map.entrySet()) {
 			String key = entry.getKey();
