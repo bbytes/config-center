@@ -269,7 +269,7 @@ public class CCProjectResource {
     InputStream in = null;
     try {
     	String fileName = "", path = "";
-    	Set<String> resources = application.getResourcePaths("/client/");
+    	Set<String> resources = application.getResourcePaths("/cc-client/");
     	if (resources != null) {
 	    	for (String res : resources) {
 				if (res.endsWith(".zip")) {
