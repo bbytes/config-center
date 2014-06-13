@@ -82,6 +82,7 @@
                             </arguments>
                         </configuration>
                     </plugin>
+                                        
                 </plugins>
             </build>
         </profile>

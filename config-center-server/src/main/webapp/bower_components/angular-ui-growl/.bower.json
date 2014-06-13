@@ -1,0 +1,29 @@
+{
+  "author": {
+    "name": "Massimo Cetra"
+  },
+  "name": "angular-ui-growl",
+  "description": "AngularUI Utilities - Growl like notifications",
+  "version": "0.0.1",
+  "homepage": "http://ctrix.github.io/angular-ui-growl/",
+  "main": "src/growl.js",
+  "dependencies": {
+    "angular": ">= 1.0.1"
+  },
+  "readme": "Angular-ui-growl: a growl/gritter like notification system for angular. Please see http://ctrix.github.io/angular-ui-growl/",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ctrix/angular-ui-growl.git"
+  },
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "f909c0fa9f32244bbb4bacd14de76d794d502db4"
+  },
+  "_source": "git://github.com/ctrix/angular-ui-growl.git",
+  "_target": "~0.0.1",
+  "_originalSource": "angular-ui-growl",
+  "_direct": true
+}
