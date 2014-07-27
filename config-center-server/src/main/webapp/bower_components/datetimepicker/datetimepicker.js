@@ -70,7 +70,7 @@ angular.module('ui.bootstrap.datetimepicker', ["ui.bootstrap"])
           function createAttrConcat(previousAttrs, attr) {
             return previousAttrs + createAttr.apply(null, attr)
           }
-          var tmpl = "<div class=\"datetimepicker-wrapper\">" +
+          var tmpl = "<div class=\"datetimepicker-wrapper dtdate\">" +
             "<input class=\"form-control\" type=\"text\" ng-model=\"ngModel\" " + [
               ["min", "minDate"],
               ["max", "maxDate"],
@@ -89,7 +89,7 @@ angular.module('ui.bootstrap.datetimepicker', ["ui.bootstrap"])
             createEvalAttr("datepickerPopup", "dateFormat") +
             "/>\n" +
             "</div>\n" +
-            "<div class=\"datetimepicker-wrapper\" ng-model=\"time\" ng-change=\"time_change()\" style=\"display:inline-block\">\n" +
+            "<div class=\"datetimepicker-wrapper dttime\" ng-model=\"time\" ng-change=\"time_change()\" style=\"display:inline-block\">\n" +
             "<timepicker " + [
               ["hourStep"],
               ["minuteStep"],
