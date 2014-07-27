@@ -13,6 +13,7 @@ import com.ning.http.client.AsyncHttpClient.BoundRequestBuilder;
 import com.ning.http.client.AsyncHttpClientConfig;
 import com.ning.http.client.AsyncHttpClientConfig.Builder;
 import com.ning.http.client.Response;
+import com.ning.http.client.providers.netty.NettyAsyncHttpProvider;
 
 public class ConfigCenterClient {
 
@@ -23,9 +24,9 @@ public class ConfigCenterClient {
 	protected String port;
 
 	protected String baseURL;
-	
+
 	protected String clientId;
-	
+
 	protected String secretKey;
 
 	protected ObjectMapper objectMapper;
@@ -46,20 +47,21 @@ public class ConfigCenterClient {
 		objectMapper.setSerializationInclusion(Include.NON_NULL);
 
 	}
-	
-	public ConfigCenterClient(String host, String port,String clientId, String secretKey) {
+
+	public ConfigCenterClient(String host, String port, String clientId, String secretKey) {
 
 		this.host = host;
 		this.port = port;
 		this.clientId = clientId;
-		this.secretKey=secretKey;
+		this.secretKey = secretKey;
 
 		baseURL = "http://" + host + ":" + port + URLConstants.SERVER_CONTEXT;
 
-		Builder builder = new AsyncHttpClientConfig.Builder();
-		builder.setCompressionEnabled(true).setAllowPoolingConnection(true).setConnectionTimeoutInMs(30000).build();
+		AsyncHttpClientConfig config = new AsyncHttpClientConfig.Builder().setCompressionEnabled(true)
+				.setAllowPoolingConnection(true).setConnectionTimeoutInMs(30000).build();
 
-		asyncHttpClient = new AsyncHttpClient(builder.build());
+		NettyAsyncHttpProvider httpProvider = new NettyAsyncHttpProvider(config);
+		asyncHttpClient = new AsyncHttpClient(httpProvider);
 
 		objectMapper = new ObjectMapper();
 		objectMapper.setSerializationInclusion(Include.NON_NULL);
@@ -100,9 +102,9 @@ public class ConfigCenterClient {
 		}
 	}
 
-	public List<CCProperty> getPropertiesForProject(String project,String environment) throws ConfigCenterException {
+	public List<CCProperty> getPropertiesForProject(String project, String environment) throws ConfigCenterException {
 		try {
-			String url = baseURL + "/project/" + project +"/" + environment+"/property";
+			String url = baseURL + "/project/" + project + "/" + environment + "/property";
 
 			Future<Response> f = buildRequest("get", url).setHeader("Content-Type", "application/json").execute();
 
