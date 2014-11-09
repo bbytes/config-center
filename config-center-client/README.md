@@ -69,4 +69,22 @@ Using config center inside java code :
 The config center is an extension of Netflix archaius project
     
     
+REST APIs
+==========
+
+Get Project List
+----------------
+
+	METHOD : GET
+	URL : /project/list/
+	
+Get Properties in Project for an env
+-----------------------------------
+
+	METHOD : GET
+	URL : /project/${projectName}/${environment}/property
+	
+
+
+
     
